@@ -6,20 +6,21 @@ from services.compatibility_service import get_compatibility_info
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:8080",
-    "https://astrol.netlify.app",
-    "http://localhost:5173",
-    "http://localhost:5172",
-    "http://localhost:5171"
-]
+# origins = [
+#     "http://localhost:8080",
+#     "https://astrol.netlify.app",
+#     "http://localhost:5173",
+#     "http://localhost:5172",
+#     "http://localhost:5171"
+# ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Access-Control-Allow-Origin"]
 )
 
 
