@@ -20,9 +20,9 @@ def get_natal_description(data: NatalData):
     for object in natal.objects.values():
         arr.append([object.name, object.sign.number, object.house.number])
 
-    with open('./data/Houses.json', 'r', encoding='utf-8') as f:
+    with open('./data/Houses.json', 'r', encoding='windows-1251') as f:
         houses = json.load(f)
-    with open('./data/Signs.json', 'r', encoding='utf-8') as f:
+    with open('./data/Signs.json', 'r', encoding='windows-1251') as f:
         signs = json.load(f)
 
     result = {}
