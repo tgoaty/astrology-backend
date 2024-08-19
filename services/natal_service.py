@@ -3,6 +3,7 @@ from immanuel import charts
 from models import NatalData
 import json
 
+
 def get_natal_description(data: NatalData):
     geolocator = Nominatim(user_agent="city_info")
     location = geolocator.geocode(data.city)
@@ -19,8 +20,6 @@ def get_natal_description(data: NatalData):
     for object in natal.objects.values():
         arr.append([object.name, object.sign.number, object.house.number])
 
-
-
     with open('./data/Houses.json', 'r') as f:
         Houses = json.load(f)
     with open('./data/Signs.json', 'r') as f:
@@ -33,7 +32,6 @@ def get_natal_description(data: NatalData):
     signs_keys = Signs.keys()
     for item in arr:
         planet_name = item[0]
-        print(item)
         if planet_name in signs_keys:
             signs_description.append(Signs[planet_name][item[1] - 1])
         if planet_name in houses_keys:
