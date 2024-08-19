@@ -44,7 +44,7 @@ def get_compatibility_info(data: CompatibilityData):
     chakra_description = soup.find("section").find_all("div")[23]
     chakra_description_b = chakra_description.find_all("b")
     chakra_description_span = chakra_description.find_all("span")
-    chakra_description_text = [[chakra_description_b[i].text, chakra_description_span[i].text] for i in
+    chakra_description_text = [{"title": chakra_description_b[i].text, "text": chakra_description_span[i].text} for i in
                                range(len(chakra_description_b))]
     result["chakraDescription"] = chakra_description_text
 
