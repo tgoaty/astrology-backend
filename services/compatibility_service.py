@@ -29,8 +29,9 @@ def get_compatibility_info(data: CompatibilityData):
         new_first_col = first_col.text[0]
         for i in range(1, len(first_col.text)):
             char = first_col.text[i]
-            if char == char.upper() and first_col.text[i - 1] == first_col.text[i - 1].lower() and char.isalpha() and \
-                    first_col.text[i - 1].isalpha():
+            prev_char = first_col.text[i - 1]
+            if char == char.upper() and prev_char == prev_char.lower() and char.isalpha() and \
+                    prev_char.isalpha():
                 new_first_col = new_first_col + ' ' + char
             else:
                 new_first_col = new_first_col + char
